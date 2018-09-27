@@ -10,11 +10,21 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-     <servlet-name>ShoppingCart</servlet-name>
-     <servlet-class>ShoppingCart</servlet-class>
+    <servlet-name>ShoppingCart</servlet-name>
+    <servlet-class>ShoppingCart</servlet-class>
   </servlet>
   <servlet-mapping>
-      <servlet-name>ShoppingCart</servlet-name>
-      <url-pattern>/shoppingCart</url-pattern>
+    <servlet-name>ShoppingCart</servlet-name>
+    <url-pattern>/shoppingCart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Login</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
 </web-app>
