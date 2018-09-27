@@ -11,6 +11,8 @@ public class ShoppingCart extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
+//		设定session的销毁时间为3分钟
+//		session.setMaxInactiveInterval(3*60);
 		Integer itemCount = (Integer)session.getAttribute("itemCount");
 		
 		if (itemCount == null) {

@@ -13,6 +13,9 @@
     <servlet-name>ShoppingCart</servlet-name>
     <servlet-class>ShoppingCart</servlet-class>
   </servlet>
+  <session-config>
+    <session-timeout>1</session-timeout>
+  </session-config>
   <servlet-mapping>
     <servlet-name>ShoppingCart</servlet-name>
     <url-pattern>/shoppingCart</url-pattern>
