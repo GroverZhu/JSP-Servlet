@@ -63,5 +63,12 @@ public class Login extends HttpServlet {
 				+ "</html>");
 		out.close();
 	}
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+		
+	}
 
 }

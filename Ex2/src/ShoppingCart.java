@@ -12,7 +12,7 @@ public class ShoppingCart extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 //		设定session的销毁时间为3分钟
-//		session.setMaxInactiveInterval(3*60);
+		session.setMaxInactiveInterval(30);
 		Integer itemCount = (Integer)session.getAttribute("itemCount");
 		
 		if (itemCount == null) {
@@ -27,7 +27,7 @@ public class ShoppingCart extends HttpServlet {
 		
 		if(itemsSelected != null) {
 			for (String itemName : itemsSelected) {
-				System.out.println(itemName);
+//				System.out.println(itemName);
 				itemCount = new Integer(itemCount.intValue() + 1);
 				
 				session.setAttribute("item" + itemCount, itemName);
