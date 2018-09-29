@@ -13,11 +13,6 @@
     <servlet-name>ShoppingCart</servlet-name>
     <servlet-class>ShoppingCart</servlet-class>
   </servlet>
-  <!--  
-  <session-config>
-    <session-timeout>1</session-timeout>
-  </session-config>
-  -->
   <servlet-mapping>
     <servlet-name>ShoppingCart</servlet-name>
     <url-pattern>/shoppingCart</url-pattern>
@@ -35,4 +30,14 @@
   <listener>
     <listener-class>BookAddedListener</listener-class>
   </listener>
+  <servlet>
+    <description></description>
+    <display-name>AutoLogin</display-name>
+    <servlet-name>AutoLogin</servlet-name>
+    <servlet-class>AutoLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AutoLogin</servlet-name>
+    <url-pattern>/AutoLogin</url-pattern>
+  </servlet-mapping>
 </web-app>
