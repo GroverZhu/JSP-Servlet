@@ -7,11 +7,14 @@ if (color.equals("amber")) {
     <jsp:forward page="ShowAmberBeer.jsp"/>
 <%  }
 if (color.equals("brown")) {
-	response.sendRedirect("ShowBrownBeer");
+	response.sendRedirect("ShowBrownBeer.jsp");
 }
 if (color.equals("dark")) {
-	RequestDispatcher view = request.getRequestDispatcher("ShowDarkBeer");
-	view.forward(request, response);
+//	RequestDispatcher view = request.getRequestDispatcher("ShowDarkBeer");
+//	view.forward(request, response);
+%>
+    <jsp:forward page="ShowDarkBeer.jsp"/>
+<% 
 }
 %>
 <jsp:include page="Header_act.jsp">

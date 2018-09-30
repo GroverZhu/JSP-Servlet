@@ -27,13 +27,6 @@ public class ShowDarkBeer extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/*
-		 * String colorParam = "Dark"; PrintWriter out = response.getWriter();
-		 * out.println("<html>" + "<body>" + "<h1 align=center>Beer Color</h1>"
-		 * + "<hr><br>" + "You selected beer color is: " + colorParam + "<br>" +
-		 * "Sorry, the dark beer's item display error!" + "</body>" +
-		 * "</html>");
-		 */
 	}
 
 	/**
