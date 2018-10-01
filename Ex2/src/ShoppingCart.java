@@ -8,17 +8,26 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class ShoppingCart extends HttpServlet {
-	@Override
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		//获得seesion对象,如果session不存在，为本次会话创建此对象
 		HttpSession session = request.getSession(true);
-//		设定session的销毁时间为3分钟
+		
+		//设定session的销毁时间为n分钟,此处的销毁时间以second计
+		//当DD中有设置timeout，则此处的seesion的timeout时间为此处设置的值
 		session.setMaxInactiveInterval(30);
+		
 		Integer itemCount = (Integer)session.getAttribute("itemCount");
 		
+		//如果session是新的
 		if (itemCount == null) {
 			itemCount = new Integer(0);
 		}
 		
+		//设置输出格式
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
 		
@@ -27,13 +36,15 @@ public class ShoppingCart extends HttpServlet {
 		
 		if(itemsSelected != null) {
 			for (String itemName : itemsSelected) {
-//				System.out.println(itemName);
 				itemCount = new Integer(itemCount.intValue() + 1);
-				
+				System.out.println(itemName);
+				//购买的条目
 				session.setAttribute("item" + itemCount, itemName);
+				//总条目
 				session.setAttribute("itemCount", itemCount);
 			}
 		}
+		
 		out.println("<html>"
 				+ "<title>item list </title>"
 				+ "<body>"
