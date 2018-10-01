@@ -24,6 +24,8 @@ public class ShowBrownBeer extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see SelectBeerServlet.java
+	 * 通过redirect方法获取，使用doGet()
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

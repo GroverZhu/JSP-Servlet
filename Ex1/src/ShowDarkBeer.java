@@ -23,22 +23,15 @@ public class ShowDarkBeer extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		out.println("<html>"
-				+ "<body>"
-				+ "<font color=black>"
-				+ "<h1 align=center>You seleted the Dark beer</h1>"
-				+ "<br>"
-				+ "</font>"
-				+ "</body>"
-				+ "</html>");
-
 	}
-	*/
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see selectServlet.java
+	 * 通过dispatcher，使用doPost()方法
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();

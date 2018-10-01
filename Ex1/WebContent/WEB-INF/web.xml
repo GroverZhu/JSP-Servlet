@@ -37,7 +37,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CodeReturn</servlet-name>
-    <url-pattern>/CodeReturn</url-pattern>
+    <url-pattern>/bookCode.jar</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -64,6 +64,7 @@
     <display-name>TestInitParams</display-name>
     <servlet-name>TestInitParams</servlet-name>
     <servlet-class>TestInitParams</servlet-class>
+    <!-- 仅能该servlet访问 -->
     <init-param>
     	<param-name>adminEmail</param-name>
     	<param-value>admin@gmail.com</param-value>
@@ -73,6 +74,7 @@
     	<param-value>main@gmail.com</param-value>
     </init-param>
   </servlet>
+  <!-- 上下文初始化参数，web应用中所有的servlet与jsp都能访问到 -->
   <context-param>
   	<param-name>adminEmail</param-name>
   	<param-value>context@gmail.com</param-value>

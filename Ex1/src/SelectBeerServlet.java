@@ -24,6 +24,13 @@ public class SelectBeerServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
+	 * 根据所选color的值，显示出不同的页面
+	 * 当color==brown, 通过redirect的方法向客户端返回页面
+	 * (browser->destination)=>(browser->service),(service->browser),(browser->destination)
+	 * redirect方法中客户端先向服务器发出请求，服务器向客户端返回301的重定向状态，之后客户端处理由服务器返回的新的路径
+	 * 当color==dark, 通过dispatcher方法向客户端返回页面
+	 * (browser->destination)=>(browser->service),(service->destination),(browser->service)
+	 * dispatch方法中客户端向服务器发出请求，服务器去处理相应方法，最后通过服务器向客户端返回相应的数据
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
