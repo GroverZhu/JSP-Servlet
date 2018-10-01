@@ -39,4 +39,10 @@
     <servlet-name>ShowDarkBeer</servlet-name>
     <url-pattern>/ShowDarkBeer</url-pattern>
   </servlet-mapping>
+  <jsp-config>
+    <jsp-property-group>
+        <url-pattern>*.jsp</url-pattern>
+        <el-ignored>false</el-ignored>
+    </jsp-property-group>
+  </jsp-config>
 </web-app>

@@ -1,21 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Beer List</title>
 </head>
 <body>
+
 <!-- Get the value of the variable "color"  -->
-<%
-    String colorParam = request.getParameter("color");
-%>
+<%String colorParam = request.getParameter("color");%>
+
 <h1 align="center">A Beer List of the color you selected</h1>
 <hr>
 <b>
-<%
-    out.println("You hava selected the "+colorParam+" Beer");
-%>
+
+<%out.println("You hava selected the "+colorParam+" Beer");%>
+
 </b>
 <p><b>Choose following information:</b></p>
 <form method="post" action="ShoppingCart">
