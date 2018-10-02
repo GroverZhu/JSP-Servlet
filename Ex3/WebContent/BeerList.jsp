@@ -26,13 +26,14 @@ if (paramColor.equals("amber")) {
     <jsp:forward page="ShowAmberBeer.jsp"/>
 
 <%  }
+//使用paramColor无法传值过去
 //if (paramColor.equals("brown")) {
 if (beer.getColor().equals("brown")) {
 	//使用redirect方法
 	response.sendRedirect("ShowBrownBeer.jsp");
 }
-//if (paramColor.equals("dark")) {
-if (beer.getColor().equals("dark")) {
+if (paramColor.equals("dark")) {
+//if (beer.getColor().equals("dark")) {
 	//使用dispatch方法
 	//RequestDispatcher view = request.getRequestDispatcher("ShowDarkBeer");
 	//view.forward(request, response);

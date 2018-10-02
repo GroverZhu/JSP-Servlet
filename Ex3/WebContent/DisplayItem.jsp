@@ -48,6 +48,7 @@
   <center> 
     <input type="submit" name="btn_submit" value="Buy Now">
   </center>
+  <jsp:include page="SelectedBeerColor.jsp" />
 </form>
 </body>
 </html>
