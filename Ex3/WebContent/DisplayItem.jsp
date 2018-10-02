@@ -16,7 +16,10 @@
 <b>
 
 <%out.println("You hava selected the "+colorParam+" Beer");%>
-
+<br>
+<!-- 使用EL输出color属性值 -->
+<b>EL:You have selected the ${param.color} beer</b>
+<br>
 </b>
 <p><b>Choose following information:</b></p>
 <form method="post" action="ShoppingCart">
