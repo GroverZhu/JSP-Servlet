@@ -11,10 +11,8 @@ String paramColor = request.getParameter("color");
 %>
 
 <!-- 通过JavaBean设置变量的值 -->
-<jsp:setProperty name="beer" property="color" value="paramColor"/>
+<jsp:setProperty name="beer" property="color" param="color"/>
 
-<!-- 通过EL表达式${param.color}获取color的值，相当于标准的getAttribute -->
-<center><h2>print the color by EL. the color is ${param.color}</h2></center>
 
 <%
 //判断使用JavaBean声明的变量与设置变量属性值的正确性
@@ -26,14 +24,14 @@ if (paramColor.equals("amber")) {
     <jsp:forward page="ShowAmberBeer.jsp"/>
 
 <%  }
-//使用paramColor无法传值过去
+//使用redirect方法，因为重定向，原先向服务器发送的值不再存在
 //if (paramColor.equals("brown")) {
 if (beer.getColor().equals("brown")) {
 	//使用redirect方法
 	response.sendRedirect("ShowBrownBeer.jsp");
 }
-if (paramColor.equals("dark")) {
-//if (beer.getColor().equals("dark")) {
+//if (paramColor.equals("dark")) {
+if (beer.getColor().equals("dark")) {
 	//使用dispatch方法
 	//RequestDispatcher view = request.getRequestDispatcher("ShowDarkBeer");
 	//view.forward(request, response);

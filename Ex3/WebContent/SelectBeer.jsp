@@ -12,25 +12,25 @@
 <title>Select a color for beer!</title>
 </head>
 <body>
-    
+
 	<%@ include file="Header_ins.jsp"%>
-	
+
 	<h1 align="center">Beer Selection Page</h1>
 	<form method="POST" action="BeerList.jsp">
-		You have selected the beer characteristics for <%=StasticInfo.getCount()%>.
+		You have selected the beer characteristics for
+		<%=StasticInfo.getCount()%>.
 		<p>
-		There are<%out.println(kinds);%> kinds of beer for choose.
+			There are <%out.println(kinds);%> kinds of beer for choose.
 		<p>
 			<select name="color" size="1">
 				<option>light
 				<option>amber
 				<option>brown
 				<option>dark
-
 			</select>
-
-			<center> <input type="SUBMIT" value="Submit">
-			</center>
+		<center>
+			<input type="SUBMIT" value="Submit">
+		</center>
 	</form>
 </body>
 </html>
