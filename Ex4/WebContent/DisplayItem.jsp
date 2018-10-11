@@ -18,8 +18,19 @@
 	<p>
 		<b>Choose following information:</b>
 	</p>
-	<form method="post" action="ShoppingCart.do">
+	<form method="post" action="ShoppingCart">
 		<table width="500" border="0" cellspacing="0" cellpadding="0">
+			<!-- 使用forEach进行表中行的显示 -->
+			<c:forEach var="beer"
+				items="The light beer of china, The amber beer of China, The beer of American"
+				varStatus="itemCounter">
+				<tr>
+					<td width="69"><input type="checkbox" name="item"
+						value="${beer}"></td>
+					<td width="431">Item${itemCounter.count}: ${beer}</td>
+				</tr>
+			</c:forEach>
+			<!--  
 			<tr>
 				<td width="69"><input type="checkbox" name="item"
 					value="The light beer of China"></td>
@@ -35,6 +46,7 @@
 					value="The beer of American"></td>
 				<td width="431">Item3: The beer of American</td>
 			</tr>
+			-->
 		</table>
 		<hr>
 		<p>
