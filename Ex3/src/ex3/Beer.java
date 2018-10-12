@@ -36,5 +36,9 @@ public class Beer {
 	public String getColor() {
 		return this.color;
 	}
+	
+	public String toString() {
+		return this.color;
+	}
 
 }
