@@ -34,6 +34,7 @@ public class CodeReturn extends HttpServlet {
 		//通过上下文，获取bookCode.jar文件
 		ServletContext ctx = getServletContext();
 		InputStream is = ctx.getResourceAsStream("bookCode.jar");
+		response.setHeader("Content-Disposition", "attachment;filename=bookCode.jar"); 
 		//以字节流的形式输出
 		int read = 0;
 		byte[] bytes = new byte[1024];
