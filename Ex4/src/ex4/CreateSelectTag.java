@@ -5,6 +5,11 @@ import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
+/**
+ * 
+ * @author GroverZhu
+ * 使用classic tag 将option做成tag使用
+ */
 public class CreateSelectTag extends TagSupport{
 	
 	/**

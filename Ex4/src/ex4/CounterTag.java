@@ -4,7 +4,12 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
-
+/**
+ * @author GroverZhu
+ * 通过counter来记住访问界面的次数
+ * 使用classic tag在jsp界面上使用 
+ *
+ */
 public class CounterTag extends TagSupport {
 	private static int counter = 1;
 	 
@@ -23,6 +28,7 @@ public class CounterTag extends TagSupport {
 		return SKIP_BODY;
 		
 	}
+	
 	public int getCounter() {
 		return counter;
 	}

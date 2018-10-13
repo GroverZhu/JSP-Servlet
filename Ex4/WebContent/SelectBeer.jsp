@@ -4,6 +4,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="MyFirstTag" prefix="mytag"%>
+<%@ taglib uri="MySimpleTag" prefix="simple" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,13 +20,20 @@
 	<!-- Commit to a JSP Page -->
 	<form method="POST" action="BeerList.jsp">
 		This application has been visited
-		<!-- CounterTag.java -->
-		<mytag:counter />
+		<%--<!-- CounterTag.java -->
+		<mytag:counter />--%>
+		<!-- CounterSimpleTag.java -->
+		<simple:counter/>
+		<mySimpleTag/>
 		times.
 		<p>There are kinds of beer for choose.
 		<p>
+		<%--
 		<!-- CreateSelectTag.java -->
 			<mytag:colorSelect />
+	    --%>
+		<!-- CreateSelectSimpleTag.java -->
+		<simple:colorSelected/>	
 		<center>
 			<input type="SUBMIT" value="Submit">
 		</center>
