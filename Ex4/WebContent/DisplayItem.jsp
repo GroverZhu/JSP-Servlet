@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="mySimpleTag" uri="MySimpleTag" %>
 <%@ page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,7 +11,7 @@
 </head>
 <body>
 	<c:set var="sessionList" scope="session"
-		value="${sessionList}, ${param.color} " />
+		value="${sessionList},${param.color}" />
 	<h1 align="center">The beer corlor that you selected is
 		${param.color}.</h1>
 	<b><a href="SelectedBeerColor.jsp">(View the selected beer
@@ -18,7 +19,7 @@
 	<p>
 		<b>Choose following information:</b>
 	</p>
-	<form method="post" action="ShoppingCart">
+	<form method="post" action="ShowCart.jsp">
 		<table width="500" border="0" cellspacing="0" cellpadding="0">
 			<!-- 使用forEach进行表中行的显示 -->
 			<c:forEach var="beer"

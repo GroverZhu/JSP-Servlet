@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="simple" uri="MySimpleTag" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,8 +14,12 @@
 	<hr>
 	<br>
 	<br>
+	<%-- 
 	<c:forEach var="selected" items="${sessionList}">
-${selected}<hr>
+    <!--   ${selected}<hr> -->
 	</c:forEach>
+	--%>
+	<!-- 使用自定义标签将选择过的beer color显示出来 -->
+	<simple:selectedColor selectedColors="${sessionList}"/>
 </body>
 </html>

@@ -24,7 +24,6 @@
 		<mytag:counter />--%>
 		<!-- CounterSimpleTag.java -->
 		<simple:counter/>
-		<mySimpleTag/>
 		times.
 		<p>There are kinds of beer for choose.
 		<p>
