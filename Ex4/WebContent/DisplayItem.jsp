@@ -19,7 +19,7 @@
 	<p>
 		<b>Choose following information:</b>
 	</p>
-	<form method="post" action="ShowCart.jsp">
+	<form method="post" action="ShoppingCart">
 		<table width="500" border="0" cellspacing="0" cellpadding="0">
 			<!-- 使用forEach进行表中行的显示 -->
 			<c:forEach var="beer"
