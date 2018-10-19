@@ -1,113 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	id="WebApp_ID" version="2.5">
-	<display-name>Ex5</display-name>
-	<welcome-file-list>
-		<welcome-file>SelectBeer.jsp</welcome-file>
-	</welcome-file-list>
-	<!-- 定义自定义tag标签uri及对应tld文件所在位置 -->
-	<jsp-config>
-		<taglib>
-			<taglib-uri>MyFirstTag</taglib-uri>
-			<taglib-location>/WEB-INF/lib/MyTag.tld</taglib-location>
-		</taglib>
-	</jsp-config>
-	<!-- 定义servlet名与访问路径 -->
-	<servlet>
-		<description></description>
-		<display-name>ShowDarkBeer</display-name>
-		<servlet-name>ShowDarkBeer</servlet-name>
-		<servlet-class>ex5.ShowDarkBeer</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ShowDarkBeer</servlet-name>
-		<url-pattern>/ShowDarkBeer.do</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<description></description>
-		<display-name>ShowBrownBeer</display-name>
-		<servlet-name>ShowBrownBeer</servlet-name>
-		<servlet-class>ex5.ShowBrownBeer</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ShowBrownBeer</servlet-name>
-		<url-pattern>/ShowBrownBeer.do</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<description></description>
-		<display-name>ShoppingCart</display-name>
-		<servlet-name>ShoppingCart</servlet-name>
-		<servlet-class>ex5.ShoppingCart</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ShoppingCart</servlet-name>
-		<url-pattern>/ShoppingCart.do</url-pattern>
-	</servlet-mapping>
-	<!-- 定义filter名与对应class -->
-	<filter>
-		<filter-name>BeerRequestFilter</filter-name>
-		<filter-class>ex5.BeerRequestFilter</filter-class>
-	</filter>
-	<!-- 声明filter的作用域 -->
-	<filter-mapping>
-		<filter-name>BeerRequestFilter</filter-name>
-		<url-pattern>/BeerList.jsp</url-pattern>
-	</filter-mapping>
-	<!-- 声明URL过滤器 -->
-	<filter>
-		<filter-name>URLRequestFilter</filter-name>
-		<filter-class>ex5.URLRequestFilter</filter-class>
-		<!-- 声明初始化参数 -->
-		<!-- 允许的请求文件 -->
-		<init-param>
-			<param-name>includeStrings</param-name>
-			<param-value>.jsp;.png;.do</param-value>
-		</init-param>
-		<!-- 重定向路径 -->
-		<init-param>
-			<param-name>redirectPath</param-name>
-			<param-value>/SelectBeer.jsp</param-value>
-		</init-param>
-		<!-- 声明该filter是否有效，为Y则为该filter无效，N则该filter有效 -->
-		<init-param>
-			<param-name>disableFilter</param-name>
-			<param-value>N</param-value>
-		</init-param>
-	</filter>
-	<!-- 声明该filter的作用范围 -->
-	<filter-mapping>
-		<filter-name>URLRequestFilter</filter-name>
-		<!-- 作用范围为该application中的request -->
-		<url-pattern>/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
-	<filter>
-		<display-name>UpperCaseFilter</display-name>
-		<filter-name>UpperCaseFilter</filter-name>
-		<filter-class>ex5.UpperCaseFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>UpperCaseFilter</filter-name>
-		<!-- 作用范围仅为ShoppingCart.java该servlet -->
-		<servlet-name>ShoppingCart</servlet-name>
-	</filter-mapping>
-	<filter>
-		<display-name>RequestFilter</display-name>
-		<filter-name>RequestFilter</filter-name>
-		<filter-class>ex5.RequestFilter</filter-class>
-		<!-- 初始化参数 -->
-		<init-param>
-		<!-- 配置默认返回路径为/SelectBeer.jsp -->
-			<param-name>redirectPath</param-name>
-			<param-value>/SelectBeer.jsp</param-value>
-		</init-param>
-	</filter>
-	<!-- 作用范围为application的request -->
-	<filter-mapping>
-		<filter-name>RequestFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Ex5</display-name>
+  <welcome-file-list>
+    <welcome-file>SelectBeer.jsp</welcome-file>
+  </welcome-file-list>
+  <jsp-config>
+    <taglib>
+      <taglib-uri>MyFirstTag</taglib-uri>
+      <taglib-location>/WEB-INF/lib/MyTag.tld</taglib-location>
+    </taglib>
+  </jsp-config>
+  <servlet>
+    <description></description>
+    <display-name>ShowDarkBeer</display-name>
+    <servlet-name>ShowDarkBeer</servlet-name>
+    <servlet-class>ex5.ShowDarkBeer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowDarkBeer</servlet-name>
+    <url-pattern>/ShowDarkBeer.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowBrownBeer</display-name>
+    <servlet-name>ShowBrownBeer</servlet-name>
+    <servlet-class>ex5.ShowBrownBeer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowBrownBeer</servlet-name>
+    <url-pattern>/ShowBrownBeer.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShoppingCart</display-name>
+    <servlet-name>ShoppingCart</servlet-name>
+    <servlet-class>ex5.ShoppingCart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShoppingCart</servlet-name>
+    <url-pattern>/ShoppingCart.do</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>BeerRequestFilter</filter-name>
+    <filter-class>ex5.BeerRequestFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>BeerRequestFilter</filter-name>
+    <url-pattern>/BeerList.jsp</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>URLRequestFilter</filter-name>
+    <filter-class>ex5.URLRequestFilter</filter-class>
+    <init-param>
+      <param-name>includeStrings</param-name>
+      <param-value>.jsp;.png;.do</param-value>
+    </init-param>
+    <init-param>
+      <param-name>redirectPath</param-name>
+      <param-value>/SelectBeer.jsp</param-value>
+    </init-param>
+    <init-param>
+      <param-name>disableFilter</param-name>
+      <param-value>N</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>URLRequestFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  <filter>
+    <display-name>UpperCaseFilter</display-name>
+    <filter-name>UpperCaseFilter</filter-name>
+    <filter-class>ex5.UpperCaseFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>UpperCaseFilter</filter-name>
+    <servlet-name>ShoppingCart</servlet-name>
+  </filter-mapping>
+  <filter>
+    <display-name>RequestFilter</display-name>
+    <filter-name>RequestFilter</filter-name>
+    <filter-class>ex5.RequestFilter</filter-class>
+    <init-param>
+      <param-name>redirectPath</param-name>
+      <param-value>/SelectBeer.jsp</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>RequestFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  <filter>
+    <display-name>ResponseFilter</display-name>
+    <filter-name>ResponseFilter</filter-name>
+    <filter-class>ex5.ResponseFilter</filter-class>
+  </filter>
+  <!-- 配置作用域， 在该application中动态使用include只有Header_act.jsp -->
+  <filter-mapping>
+    <filter-name>ResponseFilter</filter-name>
+    <url-pattern>/Header_act.jsp</url-pattern>
+    <dispatcher>INCLUDE</dispatcher>
+  </filter-mapping>
 </web-app>
