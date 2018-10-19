@@ -32,16 +32,20 @@ public class BeerRequestFilter implements Filter {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		// 获取beer的color值
 		String contents = httpRequest.getParameter("color");
+		// 根据不同的颜色在控制台打印出不同的语句
 		if (contents != null) {
 			if (contents.equals("light")) {
 				++nCount;
 				System.out.println("BeerRequestFilter: There are " + nCount + " person(s) select the light beer!");
+				// 进入下一个过滤
 				filterChain.doFilter(request, response);
 			} else {
 				System.out.println("BeerRequestFilter: Nobody selects the light Beer!");
+				// 进入下一个过滤
 				filterChain.doFilter(request, response);
 			}
 		} else {
+			// 进入下一个过滤
 			filterChain.doFilter(request, response);
 			System.out.println("BeerRequestFilter: welcome to the beer world!");
 		}
