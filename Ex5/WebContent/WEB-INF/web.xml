@@ -103,6 +103,14 @@
 			<param-name>redirectPath</param-name>
 			<param-value>/SelectBeer.jsp</param-value>
 		</init-param>
+		<init-param>
+		  <param-name>disableFilter</param-name>
+		  <param-value>N</param-value>
+		 </init-param>
+		 <init-param>
+		  <param-name>includeStrings</param-name>
+		  <param-value>SelectBeer.jsp;.png</param-value>
+		 </init-param>
 	</filter>
 	<!-- 作用范围为application的request -->
 	<filter-mapping>
