@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+
+	<display-name>ex6</display-name>
+	<welcome-file-list>
+		<welcome-file>SelectBeer.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>Show BrownBeer</servlet-name>
+		<servlet-class>ex6.ShowBrownBeer</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Show DarkBeer</servlet-name>
+		<servlet-class>ex6.ShowDarkBeer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Show BrownBeer</servlet-name>
+		<url-pattern>/ShowBrownBeer</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Show DarkBeer</servlet-name>
+		<url-pattern>/ShowDarkBeer</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ShoppingCart</servlet-name>
+		<servlet-class>ex6.ShoppingCart</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShoppingCart</servlet-name>
+		<url-pattern>/ShoppingCart.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>BeerSelect</servlet-name>
+		<servlet-class>controller.BeerSelect</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BeerSelect</servlet-name>
+		<url-pattern>/BeerSelect.do</url-pattern>
+	</servlet-mapping>
+	<jsp-config>
+		<taglib>
+			<taglib-uri>MyFirstTag</taglib-uri>
+			<taglib-location>/WEB-INF/lib/MyTag.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+	<filter>
+		<filter-name>BeerRequestFilter</filter-name>
+		<filter-class>ex6.BeerRequestFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>BeerRequestFilter</filter-name>
+		<url-pattern>/BeerList.jsp</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>URLRequestFilter</filter-name>
+		<filter-class>ex6.URLRequestFilter</filter-class>
+		<init-param>
+			<param-name>includeStrings</param-name>
+			<param-value>.jsp;.html;.png</param-value>
+		</init-param>
+		<init-param>
+			<param-name>redirectPath</param-name>
+			<param-value>/SelectBeer.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>disableFilter</param-name>
+			<param-value>Y</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>URLRequestFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter>
+		<filter-name>UpperCaseFilter</filter-name>
+		<filter-class>ex6.UpperCaseFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>UpperCaseFilter</filter-name>
+		<servlet-name>ShoppingCart</servlet-name>
+	</filter-mapping>
+</web-app>
