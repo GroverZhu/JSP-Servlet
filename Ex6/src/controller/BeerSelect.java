@@ -48,7 +48,7 @@ public class BeerSelect extends HttpServlet {
 		try {
 			result = be.getBrands(c);
 			request.setAttribute("styles", result);
-			RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("BeerList.jsp");
 			view.forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

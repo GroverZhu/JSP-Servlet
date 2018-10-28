@@ -22,21 +22,14 @@
 	<%-- 显示购物车的beer --%>
 	<form method="post" action="ShoppingCart.do">
 		<table width="500" border="0" cellspacing="0" cellpadding="0">
-			<tr>
-				<td width="69"><input type="checkbox" name="item"
-					value="The light beer of China"></td>
-				<td width="431">Item1: The light beer of China</td>
-			</tr>
-			<tr>
-				<td width="69"><input type="checkbox" name="item"
-					value="The amber beer of China"></td>
-				<td width="431">Item2: The amber beer of China</td>
-			</tr>
-			<tr>
-				<td width="69"><input type="checkbox" name="item"
-					value="The beer of American"></td>
-				<td width="431">Item3: The beer of American</td>
-			</tr>
+		<%--使用c标签中的forEach将从数据库中获取的数据打印到网页上 --%>
+			<c:forEach var="style" items="${styles}" varStatus="styleCount" >
+				<tr>
+					<td width="69"><input type="checkbox" name="item"
+						value="${style}"></td>
+					<td width="431">Item ${styleCount.count}: ${style}</td>
+				</tr>
+			</c:forEach>
 		</table>
 		<hr>
 		<p>
