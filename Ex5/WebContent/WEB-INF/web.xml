@@ -114,7 +114,7 @@
   <!-- 配置作用域， 在该application中动态使用include只有Header_act.jsp -->
   <filter-mapping>
     <filter-name>ResponseFilter</filter-name>
-    <url-pattern>/Header_act.jsp</url-pattern>
+    <url-pattern>/*</url-pattern>
     <dispatcher>INCLUDE</dispatcher>
   </filter-mapping>
 	
