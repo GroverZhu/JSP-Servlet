@@ -82,10 +82,12 @@
     <display-name>RequestFilter</display-name>
     <filter-name>RequestFilter</filter-name>
     <filter-class>ex5.RequestFilter</filter-class>
+    <!-- 
     <init-param>
         <param-name>includeStrings</param-name>
         <param-value>SelectBeer.jsp;.png</param-value>
     </init-param>
+     -->
     <init-param>
       <param-name>redirectPath</param-name>
       <param-value>/SelectBeer.jsp</param-value>

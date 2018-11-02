@@ -41,37 +41,51 @@ public class RequestFilter implements Filter {
 
 		// 获取重定向路径(当前application的路径+init-param中的初始化的值)
 		String redirectPath = httpRequest.getContextPath() + config.getInitParameter("redirectPath");
-		String includeStrings = config.getInitParameter("includeStrings");
 		String disableFilter = config.getInitParameter("disableFilter");
+		String path = httpRequest.getRequestURI();
+//		String includeStrings = config.getInitParameter("includeStrings");
+//		String[] includeList = includeStrings.split(";");
 
-		String[] includeList = includeStrings.split(";");
-
-		System.out.println("-*-\n" + redirectPath + "\n" + includeStrings + "\n" + disableFilter + "\n-*-");
-		// 判断初始化参数是否让该Filter生效
+		System.out.println("-*-\n" + redirectPath + "\n" + disableFilter + path + "\n-*-");
+		// 判断初始化参数是否让该Filter生效 "Y"为无效， "N"为有效
 		if (disableFilter.toUpperCase().equals("Y")) {
 			chain.doFilter(request, response);
 		}
+		// 当过滤器有效时，判断是不是通过get方法
+		// 如果是通过SelectBeer.jsp的操作及后续的操作是可以访问到get的方法
+		// 通过header的referer的头来判断是否是通过SelectBeer.jsp的链接访问到的
 		if (disableFilter.toUpperCase().equals("N")) {
-			// 判断是否符合资源要求
-			for (int i = 0; i < includeList.length; i++) {
-				if (httpRequest.getRequestURI().indexOf(includeList[i]) != -1) {
-					resFlag = true;
-					break;
+			if (httpRequest.getMethod().toUpperCase().equals("GET")) {
+				if (httpRequest.getHeader("referer")!= null) {
+					chain.doFilter(request, response);
+				} else if (httpRequest.getRequestURI().equals(redirectPath)) {
+					chain.doFilter(request, response);
+				} else {
+					httpResponse.sendRedirect(redirectPath);
 				}
+			} else {
+				chain.doFilter(request, response);
 			}
+			// 判断是否符合资源要求
+//			for (int i = 0; i < includeList.length; i++) {
+//				if (httpRequest.getRequestURI().equals(includeList[i])) {
+//					resFlag = true;
+//					break;
+//				}
+//			}
 			// 判断request是否是get方法
-			if (!httpRequest.getMethod().toUpperCase().equals("GET")) {
-				flag = true;
-			}
-			System.out.println("-*+\n" + resFlag + "\n" + flag + "+*-");
+//			if (!httpRequest.getMethod().toUpperCase().equals("GET")) {
+//				flag = true;
+//			}
+//			System.out.println("-*+\n" + resFlag + "\n" + flag + "+*-");
 			// 根据flag 与 resFlag 的值是否满足跳转条件
 			// 有条件可知SelectBeer.jsp中flag=false， resFlag=true
-			if (flag || resFlag) {
-				chain.doFilter(request, response);
-				return;
-			} else {
-				httpResponse.sendRedirect(redirectPath);
-			}
+//			if (flag || resFlag) {
+//				chain.doFilter(request, response);
+//				return;
+//			} else {
+//				httpResponse.sendRedirect(redirectPath);
+//			}
 		}
 
 	}
