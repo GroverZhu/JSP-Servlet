@@ -1,8 +1,8 @@
 
+/build/
 .metadata
 bin/
 tmp/
-build/
 *.tmp
 *.bak
 *.swp
@@ -10,6 +10,8 @@ build/
 local.properties
 .settings/
 .loadpath
+.classpath
+.project
 .recommenders
 
 # External tool builders
